@@ -1,0 +1,103 @@
+		 |__   __|                   /_ |
+		    | | ___ _ __ ___   __ _   | |
+		    | |/ _ \ '_ ` _ \ / _` |  | |
+		    | |  __/ | | | | | (_| |  | |
+		    |_|\___|_| |_| |_|\__,_|  |_|
+
+Am ales să memorez fiecare IP într-un vector în care fiecare element
+reprezintă un octet (pe poziţiile 1-4), şi eventual masca de reţea (pe 
+poziţia 5). Cele NUM adrese de reţea le memorez într-o matrice.
+
+Programul rulează operaţiile pentru fiecare set de date, fiind încadrat
+într-un bloc "for".
+
+==================================Task 0==================================
+
+Afişez IP_1 folosind printf.
+
+==================================Task 1==================================
+
+Creez o copie a măştii în forma prefixată, pentru a o putea modifica fără
+a pierde datele iniţiale.
+
+Memorez într-un vector mai întât octeţii compleţi (care conţin 1 pe 
+fiecare poziţie), apoi octetul incomplet (dacă există), ca sumă de puteri
+ale lui 2.
+
+Afişez vectorul obţinut.
+
+==================================Task 2==================================
+
+Folosesc vectorul-mască obţinut la Task 1 pentru a obţine adresa de reţea.
+
+Aplic operatorul "&" ("şi") octet cu octet între IP_1 şi MASCA şi memorez
+datele într-un vector.
+
+Afişez vectorul obţinut.
+
+==================================Task 3==================================
+
+Analog cu Task 2, folosesc vectorul-mască obţinut la Task 1 pentru a 
+obţine adresa de broadcast.
+
+Aplic operatorul "|" ("sau") octet cu octet între IP_1 şi MASCA şi memorez
+datele într-un vector.
+
+Afişez vectorul obţinut.
+
+==================================Task 4==================================
+
+Variabila "verif" indică dacă IP_1 şi IP_2 fac parte (1) sau nu (0) din
+aceeaşi reţea.
+
+Pentru ca doi vectori să facă parte din aceeaşi reţea, partea lor de reţea
+trebuie să concidă. Verific aşadar dacă primii MASCA_X biţi din cele două
+adrese IP coincid (unde MASCA_X este forma prefixată a măştii de reţea).
+
+Verific dacă doi octeţi coincid folosind operatorul "^" ("sau-exclusiv").
+
+Verific mai întâi octeţii compleţi (în număr de MASCA_X / 8). Apoi verific
+primii MASCA_X % 8 biţi din octetul incomplet (dacă există) folosind
+shiftarea.
+
+În funcţie de valoarea variabilei "verif", afişez mesajul corespunzător.
+
+==================================Task 5==================================
+
+Folosesc facilităţile oferite de printf pentru a afişa direct adresele IP
+în bază 16, respectiv în bază 8.
+
+==================================Task 6==================================
+
+Formez o funcţie (ac_retea) care verifică, prin acelaşi algoritm ca la
+Task 4, dacă două adrese IP fac parte din aceeaşi reţea.
+
+Compar IP_2 cu toate celelalte adrese IP după masca corespunzătoare şi 
+afişez indicii reţelelor din care ar putea să facă parte IP_2.
+
+==================================Task 7==================================
+
+Formez o funcţie ("binar") care realizează conversia din decimal în binar
+şi afişează rezultatul obţinut.
+
+Algoritmul de conversie este cel al împărţirilor succesive cu 2, resturile
+acestor operaţii fiind salvate într-un vector "rest" pentru a putea fi
+afişate în ordine inversă obţinerii.
+
+Aplic funcţia "binar" lui IP_1 şi IP_2.
+
+==================================Task 8==================================
+
+Analog cu Task 7, formez o funcţie ("baza_32") care realizează conversia
+din bază 2 în bază 32 şi afişează rezultatul obţinut.
+
+Algoritmul de conversie este cel al împărţirilor succesive cu 32,
+resturile acestor operaţii fiind salvate într-un vector "rest" pentru a 
+putea fi afişate în ordine inversă obţinerii.
+
+Pentru afişarea resturilor mai mari ca 9 prin literele alfabetului
+folosesc codul ASCII, ştiind că 65 îi corespunde caracterului 'A'.
+
+Aplic funcţia "baza_32" lui IP_1 şi IP_2.
+
+==========================================================================
